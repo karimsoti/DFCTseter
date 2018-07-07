@@ -68,18 +68,17 @@ public class NfcMainActivity extends AppCompatActivity {
                 this.unregisterReceiver(this.nfcStateHandler);
             }
         } catch (IllegalArgumentException ex) {
+
             Log.v(TAG, ex.getMessage());
-//            Intent intent = new Intent(NfcMainActivity.this, MainActivity.class);
-//            startActivity(intent);
+
         }
-//        this.unregisterReceiver(this.nfcStateHandler);
 
         super.onDestroy();
     }
 
 
     public void setNfcLogArrayList(NfcStateHandler nfcStateChangeList) {
-        this.nfcLogArrayList = nfcStateChangeList.getNfcStateChangeMessages();
+        this.nfcLogArrayList = nfcStateChangeList.getStateChangeMessages();
     }
 
 

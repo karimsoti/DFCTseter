@@ -12,6 +12,8 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
+import com.kabdelbaki.dfctester.StateHandler;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,7 +21,7 @@ import java.util.Date;
 /**
  * Created by Kabdelbaki on 06/07/2018.
  */
-public class NfcStateHandler extends BroadcastReceiver {
+public class NfcStateHandler extends BroadcastReceiver  implements StateHandler{
 
     private IntentFilter filter;
     private BroadcastReceiver nfcLBroadcastListener;
@@ -111,10 +113,10 @@ public class NfcStateHandler extends BroadcastReceiver {
     }
 
 
-    public ArrayList<String> getNfcStateChangeMessages() {
-        return this.nfcStateChangeMessages;
-
-    }
+//    public ArrayList<String> getNfcStateChangeMessages() {
+//        return this.nfcStateChangeMessages;
+//
+//    }
 
 
     public BroadcastReceiver getNfcBroadcastListener() {
@@ -122,6 +124,12 @@ public class NfcStateHandler extends BroadcastReceiver {
 
     }
 
+    @Override
+    public ArrayList<String> getStateChangeMessages() {
+        return this.nfcStateChangeMessages;
+    }
+
+    @Override
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public IntentFilter getFilter() {
         return this.filter;

@@ -1,5 +1,6 @@
 package com.kabdelbaki.dfctester;
 
+import android.content.Context;
 import android.content.IntentFilter;
 
 import java.util.ArrayList;
@@ -7,20 +8,10 @@ import java.util.ArrayList;
 /**
  * Created by Kabdelbaki on 07/07/2018.
  */
-public class StateHandler {
+public interface StateHandler {
 
-    private IntentFilter filter;
-    private ArrayList<String> stateChangeMessages;
 
-    public StateHandler() {
+    ArrayList<String> getStateChangeMessages();
 
-    }
-
-    public ArrayList<String> getStateChangeMessages() {
-        return stateChangeMessages;
-    }
-
-    public IntentFilter getFilter() {
-        return filter;
-    }
+    IntentFilter getFilter();
 }
